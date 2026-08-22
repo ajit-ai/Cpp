@@ -54,9 +54,9 @@ feature-wise C++ learning collection with unit tests and an automated build.
 
 ## Future Ideas (Phase 6+)
 
+- [x] GitHub Actions CI workflow building examples + running tests on push
 - [ ] Exception handling and error handling patterns
 - [ ] Templates deep-dive: class templates, variadic templates, concepts
 - [ ] Concurrency: `std::thread`, `mutex`, `atomic`, `async`
 - [ ] File I/O: `fstream`, serialization
 - [ ] Move to GoogleTest/Catch2 when external deps are acceptable
-- [ ] GitHub Actions CI workflow running `build.ps1` / CMake on every push

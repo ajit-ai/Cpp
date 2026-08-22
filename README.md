@@ -1,5 +1,7 @@
 # C++ Examples
 
+[![Build & Test](https://github.com/ajit-ai/Cpp/actions/workflows/build.yml/badge.svg)](https://github.com/ajit-ai/Cpp/actions/workflows/build.yml)
+
 A feature-wise C++ learning repository. Each example is a self-contained
 program demonstrating one topic; unit tests live under `tests/`.
 See [PLAN.md](PLAN.md) for the full roadmap and future ideas.
@@ -97,6 +99,17 @@ Then rebuild with `.\build.ps1`. Note `tests/main.cpp` holds the single
 1. Create `features/<topic>/<name>.cpp` with its own `main()`.
 2. Run `.\build.ps1` — it is picked up automatically.
 3. Optionally document it in the Examples Catalog above and `PLAN.md`.
+
+## Continuous Integration
+
+GitHub Actions (`.github/workflows/build.yml`) runs on every push and PR to
+`main`/`develop`:
+
+| Job | Runner | What it does |
+|---|---|---|
+| Linux / g++ C++20 | `ubuntu-latest` | Compiles all examples, builds & runs unit tests |
+| Windows / g++ | `windows-latest` | Runs the same via `.\build.ps1` |
+| Linux / CMake | `ubuntu-latest` | Validates the CMake build with `ctest` |
 
 ## Git Workflow
 
