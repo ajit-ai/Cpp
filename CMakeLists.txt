@@ -15,6 +15,7 @@ file(GLOB_RECURSE EXAMPLE_SOURCES CONFIGURE_DEPENDS
 foreach(src ${EXAMPLE_SOURCES})
     get_filename_component(target ${src} NAME_WE)
     add_executable(${target} ${src})
+    target_include_directories(${target} PRIVATE include)
     target_link_libraries(${target} PRIVATE Threads::Threads)
 endforeach()
 

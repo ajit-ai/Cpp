@@ -19,7 +19,7 @@ jobs:
           mkdir -p build/bin
           for src in $(find basic features -name '*.cpp'); do
             name=$(basename "$src" .cpp)
-            g++ -std=c++20 -Wall -Wextra -pthread "$src" -o "build/bin/$name"
+            g++ -std=c++20 -Wall -Wextra -pthread -Iinclude "$src" -o "build/bin/$name"
             echo "built $name"
           done
 
