@@ -4,6 +4,8 @@ project(cpp_examples CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(Threads REQUIRED)
+
 # One executable per example program
 file(GLOB_RECURSE EXAMPLE_SOURCES CONFIGURE_DEPENDS
     basic/*.cpp
@@ -13,6 +15,7 @@ file(GLOB_RECURSE EXAMPLE_SOURCES CONFIGURE_DEPENDS
 foreach(src ${EXAMPLE_SOURCES})
     get_filename_component(target ${src} NAME_WE)
     add_executable(${target} ${src})
+    target_link_libraries(${target} PRIVATE Threads::Threads)
 endforeach()
 
 # Unit tests (single runner linking all test files + utility headers)
