@@ -1,0 +1,54 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  linux-gcc:
+    name: Linux / g++ C++20
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build all examples
+        run: |
+          mkdir -p build/bin
+          for src in $(find basic features -name '*.cpp'); do
+            name=$(basename "$src" .cpp)
+            g++ -std=c++20 -Wall -Wextra "$src" -o "build/bin/$name"
+            echo "built $name"
+          done
+
+      - name: Run unit tests
+        run: |
+          g++ -std=c++20 -Wall -Wextra -Iinclude tests/*.cpp -o build/unit_tests
+          ./build/unit_tests
+
+  windows-gcc:
+    name: Windows / g++ (build.ps1)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and test via build.ps1
+        shell: pwsh
+        run: ./build.ps1
+
+  cmake-ubuntu:
+    name: Linux / CMake + ctest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build-cmake
+
+      - name: Build
+        run: cmake --build build-cmake
+
+      - name: Test
+        run: ctest --test-dir build-cmake --output-on-failure
