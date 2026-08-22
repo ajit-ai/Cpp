@@ -17,6 +17,7 @@ endforeach()
 
 # Unit tests (single runner linking all test files + utility headers)
 add_executable(unit_tests
+    tests/main.cpp
     tests/test_math_utils.cpp
     tests/test_string_utils.cpp
 )
