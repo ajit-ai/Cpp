@@ -55,8 +55,8 @@ feature-wise C++ learning collection with unit tests and an automated build.
 ## Future Ideas (Phase 6+)
 
 - [x] GitHub Actions CI workflow building examples + running tests on push
-- [ ] Exception handling and error handling patterns
-- [ ] Templates deep-dive: class templates, variadic templates, concepts
-- [ ] Concurrency: `std::thread`, `mutex`, `atomic`, `async`
-- [ ] File I/O: `fstream`, serialization
+- [x] Exception handling: `features/error_handling/exceptions.cpp`
+- [x] Templates deep-dive: `features/templates/templates_deep_dive.cpp`
+- [x] Concurrency: `features/concurrency/concurrency.cpp`
+- [x] File I/O + CSV parsing: `features/file_io/file_io.cpp`, `include/csv_utils.hpp` (+ tests)
 - [ ] Move to GoogleTest/Catch2 when external deps are acceptable

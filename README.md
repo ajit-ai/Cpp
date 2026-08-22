@@ -37,6 +37,10 @@ CMakeLists.txt  portable build definition
 | `features/stl/algorithms.cpp` | `sort`, `find_if`, `count_if`, `accumulate`, `transform`, erase-remove idiom |
 | `features/modern/smart_pointers.cpp` | RAII, `unique_ptr`, `shared_ptr`, `weak_ptr` |
 | `features/modern/modern_features.cpp` | `auto`, lambdas, structured bindings, `std::optional`, move semantics, `string_view` |
+| `features/error_handling/exceptions.cpp` | `try/catch`, exception hierarchy, custom exceptions, rethrow, stack unwinding |
+| `features/templates/templates_deep_dive.cpp` | Class templates, specialization, variadics, fold expressions, C++20 concepts |
+| `features/concurrency/concurrency.cpp` | `std::thread`, `mutex`, `atomic`, data races, `async`/`future` |
+| `features/file_io/file_io.cpp` | `ofstream`/`ifstream`, append mode, line-by-line reading, CSV records |
 
 ## Requirements
 

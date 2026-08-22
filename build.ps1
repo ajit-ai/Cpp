@@ -32,7 +32,7 @@ $examples = Get-ChildItem -Recurse -Filter *.cpp |
     Where-Object { $_.FullName -notmatch '\\tests\\' }
 foreach ($src in $examples) {
     $name = [IO.Path]::GetFileNameWithoutExtension($src.Name)
-    & $compiler "-std=$Std" -Wall -Iinclude $src.FullName -o "build\bin\$name.exe"
+    & $compiler "-std=$Std" -Wall -pthread -Iinclude $src.FullName -o "build\bin\$name.exe"
     if ($LASTEXITCODE -ne 0) { throw "Build failed for $($src.FullName)." }
     Write-Host "  built $name.exe"
 }
